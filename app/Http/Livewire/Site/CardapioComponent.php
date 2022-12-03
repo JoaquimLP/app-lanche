@@ -10,6 +10,8 @@ class CardapioComponent extends Component
     public $categoria_id = null;
     public $page = null;
     public $next = 1;
+    public $cep, $cidade, $bairro, $uf, $logradouro;
+    public $qtd_produto, $nome_categoria, $nome_produto;
 
     public function render()
     {
@@ -35,5 +37,24 @@ class CardapioComponent extends Component
 
         $this->page = $page;
         $this->next = $page;
+    }
+
+    public function modal()
+    {
+
+    }
+
+    public function consultarCep()
+    {//buscarCep
+        $apiClientCep = new ApiClient();
+        $response = $apiClientCep->buscarCep($this->cep);
+
+        $data = json_decode($response["data"]);
+        if(isset($data->cep)){
+            $this->cidade = isset($data->localidade) ? $data->localidade : null;
+            $this->bairro = isset($data->bairro) ? $data->bairro : null;
+            $this->uf = isset($data->uf) ? $data->uf : null;
+            $this->logradouro = isset($data->logradouro) ? $data->logradouro : null;
+        }
     }
 }

@@ -1,8 +1,18 @@
 <section class="py-4 overflow-hidden">
     <div class="container">
         <div class="row h-100">
-            <div class="col-lg-12 mx-auto text-center mt-7 mb-3">
-                <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Cardápio</h5>
+            <div class="col-lg-12 row mx-auto text-center mt-7 mb-3">
+                <div class="col-lg-6 d-flex justify-content-end">
+                    <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Cardápio</h5>
+                </div>
+
+                <div class="col-lg-6 d-flex justify-content-end">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Monte o seu pedido
+                    </button>
+                </div>
+
             </div>
             <div class="col-lg-auto d-none d-lg-block mx-auto text-center mb-3">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -94,4 +104,5 @@
             </div>
         </div>
     </div><!-- end of .container-->
+    @include("livewire.site.modal")
 </section>
